@@ -5,8 +5,6 @@ public class Flightt {
 
     public Flightt() {
         seats = new boolean[10];
-        System.out.print("Inside Constructor");
-        System.out.print(seats[0]);
     }
 
     public void displayAvailableSeats() {
@@ -39,25 +37,41 @@ public class Flightt {
     }
 
     public static void main(String[] args) {
-        Flight twaFlight = new Flight();
+        Flightt twaFlight = new Flightt();
         Scanner scanner = new Scanner(System.in);
 
-        twaFlight.displayAvailableSeats();
+        int choice;
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Display Available Seats");
+            System.out.println("2. Reserve a Seat");
+            System.out.println("3. Cancel Reservation");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
 
-        // Ask the user to select a seat to reserve
-        System.out.print("Enter the seat number you want to reserve: ");
-        int seatToReserve = scanner.nextInt();
-        twaFlight.reserveSeat(seatToReserve);
+            switch (choice) {
+                case 1:
+                    twaFlight.displayAvailableSeats();
+                    break;
+                case 2:
+                    System.out.print("Enter the seat number you want to reserve: ");
+                    int seatToReserve = scanner.nextInt();
+                    twaFlight.reserveSeat(seatToReserve);
+                    break;
+                case 3:
+                    System.out.print("Enter the seat number you want to cancel reservation for: ");
+                    int seatToCancel = scanner.nextInt();
+                    twaFlight.cancelReservation(seatToCancel);
+                    break;
+                case 4:
+                    System.out.println("Exiting program...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        } while (choice != 4);
 
-        twaFlight.displayAvailableSeats();
-
-        // Ask the user to select a seat to cancel reservation
-        System.out.print("Enter the seat number you want to cancel reservation for: ");
-        int seatToCancel = scanner.nextInt();
-        twaFlight.cancelReservation(seatToCancel);
-
-        twaFlight.displayAvailableSeats();
-
-        scanner.close(); // Close the scanner to avoid resource leak
+        scanner.close();
     }
 }
