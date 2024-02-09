@@ -1,13 +1,9 @@
 
 
-public class ArrayStack implements Stack
+public class ArrayStack 
 {
-	private String
 
-    public ArrayStack() 
-    {
-    	
-    }
-    
+
+    syso
     
 }
