@@ -2,29 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
-
-
 public class TrialWindow4 extends JFrame 
 {
 
 public  static final int LENGTH=400;
 public  static final int WIDTH=400;
-public  static final int SWIDTH=200;
+public  static final int S_WIDTH=200;
 public  static final int S_LENGTH=200;
 
 public TrialWindow4()
-{
-	
+{   
+
 	setTitle("Main Window");
 	setSize(LENGTH,WIDTH);
 	getContentPane().setBackground(Color.GRAY);
 	setLayout(new BorderLayout());
 	setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-	
 	JLabel label=new JLabel("Thanks for choosing this GUI");
 	add(label,BorderLayout.CENTER);
-	
 	addWindowListener(new Closing());
 	setVisible(true);
 }	
@@ -34,7 +29,7 @@ private class ConfirmWindow extends JFrame implements ActionListener
 	{
 		super();
 	setTitle("Confirm Window");
-	setSize(S_LENGTH,SWIDTH);
+	setSize(S_LENGTH,S_WIDTH);
 	setLayout(new BorderLayout());
 	getContentPane().setBackground(Color.YELLOW);
 	
@@ -64,13 +59,13 @@ private class ConfirmWindow extends JFrame implements ActionListener
 
 public void actionPerformed(ActionEvent e)
 {
-	String btnstr=e.getActionCommand();
+	String buttonString=e.getActionCommand();
 	
-	if(btnstr.equals("YES"))
+	if(buttonString.equals("YES"))
 	{
 		System.exit(0);
 	}
-	else if(btnstr.equals("NO"))
+	else if(buttonString.equals("NO"))
 	{
 		dispose();
 	}
@@ -82,7 +77,7 @@ public void actionPerformed(ActionEvent e)
 }
 private class Closing extends WindowAdapter
 {
-	public void WindowClosing(WindowEvent e)
+	public void windowClosing(WindowEvent e)
 	{
 	
 	ConfirmWindow checker=new ConfirmWindow();
