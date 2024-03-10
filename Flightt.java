@@ -17,16 +17,15 @@ public class Flightt {
         }
         System.out.println();
     }
-
     public void reserveSeat(int seatNumber) {
         if (seatNumber >= 1 && seatNumber <= seats.length && !seats[seatNumber - 1]) {
             seats[seatNumber - 1] = true;
             System.out.println("Seat " + seatNumber + " Reserved Successfully");
-        } else {
+        } else 
+        {
             System.out.println("Invalid Seat Number or Seat already reserved");
         }
     }
-
     public void cancelReservation(int seatNumber) {
         if (seatNumber >= 1 && seatNumber <= seats.length && seats[seatNumber - 1]) {
             seats[seatNumber - 1] = false;
@@ -35,11 +34,9 @@ public class Flightt {
             System.out.println("Invalid Seat Number or Seat not reserved");
         }
     }
-
     public static void main(String[] args) {
         Flightt twaFlight = new Flightt();
         Scanner scanner = new Scanner(System.in);
-
         int choice;
         do {
             System.out.println("\nMenu:");
@@ -50,7 +47,8 @@ public class Flightt {
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
 
-            switch (choice) {
+          switch (choice) 
+            {
                 case 1:
                     twaFlight.displayAvailableSeats();
                     break;
@@ -70,7 +68,8 @@ public class Flightt {
                 default:
                     System.out.println("Invalid choice. Please enter a number between 1 and 4.");
             }
-        } while (choice != 4);
+        } 
+      while (choice != 4);
 
         scanner.close();
     }
